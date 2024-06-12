@@ -2,9 +2,9 @@
 In silico Differentially Expressed Transcripts Identification
 
 
-## Bioinformatic  tools to identify differentially expressed transcripts in species with or without a reference genome.
+*Bioinformatic  tools to identify differentially expressed transcripts in species with or without a reference genome.*
 
-# Software dependencies
+## Software dependencies
 
 ### Procedure 1 - Identifying sex-specific transcripts in species without a sequenced reference genome
 1.  BLAST+ - https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/
