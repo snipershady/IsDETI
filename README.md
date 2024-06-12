@@ -6,7 +6,7 @@ In silico Differentially Expressed Transcripts Identification
 
 ## Software dependencies
 
-### Procedure 1 - Identifying sex-specific transcripts in species without a sequenced reference genome
+### Procedure 1 - Identifying sex-specific transcripts in species WITHOUT a sequenced reference genome
 1.  BLAST+ - https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/
 2.  BUSCO - https://gitlab.com/ezlab/busco
 3.  BOWTIE - https://bowtie-bio.sourceforge.net/index.shtml
@@ -19,7 +19,7 @@ In silico Differentially Expressed Transcripts Identification
 10.  SAMTOOLS - https://www.htslib.org
 11.  SRA TOOLKIT - https://github.com/ncbi/sra-tools
 
-### Procedure 2 - Identifying sex-specific transcripts in species with a sequenced reference genome
+### Procedure 2 - Identifying sex-specific transcripts in species WITH a sequenced reference genome
 1.  EDGER - https://bioconductor.org/packages/release/bioc/html/edgeR.html
 2.  FASTQC - https://github.com/s-andrews/FastQC
 3.  R - https://www.r-project.org/
