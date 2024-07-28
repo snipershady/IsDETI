@@ -79,8 +79,9 @@ now, paste this ascii code
 
 
 ```
+## Dependencies from official debian repository
 
-## Basic system requirements
+### Basic system requirements
 
 **All this script is tested on Debian 12.**
 
@@ -91,20 +92,37 @@ now, paste this ascii code
 apt-get install -y make g++ gcc cmake rsync git curl wget python3 python3-numpy python-is-python3 zstd
 ```
 
-## Software requirements
+### Software requirements
 ```bash
 apt-get install -y r-base ncbi-blast+ rsem  r-bioc-* libgd-graph-perl libbio-perl-perl 
 ```
 
-## Start installing some tools
+### Start installing some tools
 ```bash
 apt-get install -y bowtie bowtie2 jellyfish salmon samtools bamtools busco fastqc trimmomatic sra-toolkit
 ```
 
+## Installation of third-party software not included in the debian repository
+
+### Install Trinity 2.15.1
+
+```bash
+wget -O trinity.tar.gz "https://github.com/trinityrnaseq/trinityrnaseq/releases/download/Trinity-v2.15.1/trinityrnaseq-v2.15.1.FULL.tar.gz"
+mkdir -p /opt/trinity
+tar zxf trinity.tar.gz -C /opt/trinity/
+ln -s /opt/trinity/trinityrnaseq-v2.15.1/Trinity /usr/local/bin/Trinity
+echo "export TRINITY_HOME=/opt/trinity/trinityrnaseq-v2.15.1" >> .bashrc
+exec bash
+cd $TRINITY_HOME
+make install
+make
+cd /
+```
 
 ### Full script
 
 ```bash
+
 #!/bin/bash
 
 if [ "$(whoami)" != "root" ]; then
@@ -115,4 +133,15 @@ ${SUDO} apt-get update
 ${SUDO} apt-get install -y make g++ gcc cmake rsync git curl wget python3 python3-numpy python-is-python3 zstd
 ${SUDO} apt-get install -y r-base ncbi-blast+ rsem  r-bioc-* libgd-graph-perl libbio-perl-perl 
 ${SUDO} apt-get install -y bowtie bowtie2 jellyfish salmon samtools bamtools busco fastqc trimmomatic sra-toolkit
+
+${SUDO} wget -O trinity.tar.gz "https://github.com/trinityrnaseq/trinityrnaseq/releases/download/Trinity-v2.15.1/trinityrnaseq-v2.15.1.FULL.tar.gz"
+${SUDO} mkdir -p /opt/trinity
+${SUDO} tar zxf trinity.tar.gz -C /opt/trinity/
+${SUDO} ln -s /opt/trinity/trinityrnaseq-v2.15.1/Trinity /usr/local/bin/Trinity
+${SUDO} echo "export TRINITY_HOME=/opt/trinity/trinityrnaseq-v2.15.1" >> .bashrc
+${SUDO} exec bash
+${SUDO} cd $TRINITY_HOME
+${SUDO} make install
+${SUDO} make
+${SUDO} cd /
 ```
