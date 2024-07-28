@@ -82,7 +82,10 @@ now, paste this ascii code
 
 ## Basic system requirements
 
-All this script is tested on Debian 12
+**All this script is tested on Debian 12.**
+
+*You need to be root or member of sudoers to run the installation script*
+
 
 ```bash
 apt-get install -y make g++ gcc cmake rsync git curl wget python3 python3-numpy python-is-python3 zstd
@@ -96,4 +99,20 @@ apt-get install -y r-base ncbi-blast+ rsem  r-bioc-* libgd-graph-perl libbio-per
 ## Start installing some tools
 ```bash
 apt-get install -y bowtie bowtie2 jellyfish salmon samtools bamtools busco fastqc trimmomatic sra-toolkit
+```
+
+
+### Full script
+
+```bash
+#!/bin/bash
+
+if [ "$(whoami)" != "root" ]; then
+    SUDO=sudo
+fi
+
+${SUDO} apt-get update
+${SUDO} apt-get install -y make g++ gcc cmake rsync git curl wget python3 python3-numpy python-is-python3 zstd
+${SUDO} apt-get install -y r-base ncbi-blast+ rsem  r-bioc-* libgd-graph-perl libbio-perl-perl 
+${SUDO} apt-get install -y bowtie bowtie2 jellyfish salmon samtools bamtools busco fastqc trimmomatic sra-toolkit
 ```
