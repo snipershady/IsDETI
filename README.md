@@ -111,12 +111,13 @@ wget -O trinity.tar.gz "https://github.com/trinityrnaseq/trinityrnaseq/releases/
 mkdir -p /opt/trinity
 tar zxf trinity.tar.gz -C /opt/trinity/
 ln -s /opt/trinity/trinityrnaseq-v2.15.1/Trinity /usr/local/bin/Trinity
+export TRINITY_HOME=/opt/trinity/trinityrnaseq-v2.15.1
 echo "export TRINITY_HOME=/opt/trinity/trinityrnaseq-v2.15.1" >> .bashrc
-exec bash
 cd $TRINITY_HOME
 make install
 make
 cd /
+exec bash
 ```
 
 ### Full script
@@ -138,10 +139,11 @@ ${SUDO} wget -O trinity.tar.gz "https://github.com/trinityrnaseq/trinityrnaseq/r
 ${SUDO} mkdir -p /opt/trinity
 ${SUDO} tar zxf trinity.tar.gz -C /opt/trinity/
 ${SUDO} ln -s /opt/trinity/trinityrnaseq-v2.15.1/Trinity /usr/local/bin/Trinity
+${SUDO} export TRINITY_HOME=/opt/trinity/trinityrnaseq-v2.15.1
 ${SUDO} echo "export TRINITY_HOME=/opt/trinity/trinityrnaseq-v2.15.1" >> .bashrc
-${SUDO} exec bash
 ${SUDO} cd $TRINITY_HOME
 ${SUDO} make install
 ${SUDO} make
 ${SUDO} cd /
+${SUDO} exec bash
 ```
