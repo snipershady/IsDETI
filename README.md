@@ -30,8 +30,16 @@ In silico Differentially Expressed Transcripts Identification
 8.  TRIMMOMATIC - http://www.usadellab.org/cms/?page=trimmomatic
 9.  TRINITY - https://github.com/trinityrnaseq/trinityrnaseq/
 
+## Let's setup a very powerful motd
+
 ```bash
-echo "
+nano /etc/motd
+```
+
+now, paste this ascii code
+
+
+```
     ,                      _,-
    (\                  _,-','
     \\              ,-"  ,'
@@ -70,6 +78,4 @@ echo "
         \/              \/           \/     \/      \/
 
 
-
-" > /etc/motd
 ```
