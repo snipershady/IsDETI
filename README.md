@@ -90,5 +90,10 @@ apt-get install -y make g++ gcc cmake rsync git curl wget python3 python3-numpy 
 
 ## Software requirements
 ```bash
-apt-get install - y r-base ncbi-blast+ rsem bowtie bowtie2 jellyfish salmon samtools bamtools r-bioc-* libgd-graph-perl libbio-perl-perl -y
+apt-get install -y r-base ncbi-blast+ rsem  r-bioc-* libgd-graph-perl libbio-perl-perl 
+```
+
+## Start installing some tools
+```bash
+apt-get install -y bowtie bowtie2 jellyfish salmon samtools bamtools busco fastqc trimmomatic sra-toolkit
 ```
