@@ -79,3 +79,16 @@ now, paste this ascii code
 
 
 ```
+
+## Basic system requirements
+
+All this script is tested on Debian 12
+
+```bash
+apt-get install -y make g++ gcc cmake rsync git curl wget python3 python3-numpy python-is-python3 zstd
+```
+
+## Software requirements
+```bash
+apt-get install - y r-base ncbi-blast+ rsem bowtie bowtie2 jellyfish salmon samtools bamtools r-bioc-* libgd-graph-perl libbio-perl-perl -y
+```
