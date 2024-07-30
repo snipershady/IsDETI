@@ -89,7 +89,7 @@ now, paste this ascii code
 
 
 ```bash
-apt-get install -y make g++ gcc cmake rsync git curl wget python3 python3-numpy python-is-python3 zstd
+apt-get install -y make g++ gcc cmake rsync git curl wget python3 python3-numpy python-is-python3 zstd build-essential
 ```
 
 ### Software requirements
