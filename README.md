@@ -83,67 +83,18 @@ now, paste this ascii code
 
 ### Basic system requirements
 
-**All this script is tested on Debian 12.**
+**All this script is tested on Debian 12 and Ubuntu 24.04**
 
 *You need to be root or member of sudoers to run the installation script*
 
-
 ```bash
-apt-get install -y make g++ gcc cmake rsync git curl wget python3 python3-numpy python-is-python3 zstd build-essential
+apt-get install wget
+wget -O biozap.tar.gz "https://github.com/snipershady/IsDETI/archive/refs/tags/1.0.0.tar.gz"
+tar zxvf biozap.tar.gz
+cd IsDETI-1.0.0
+bash setup-bio-environment.sh
 ```
-
-### Software requirements
-```bash
-apt-get install -y r-base ncbi-blast+ rsem  r-bioc-* libgd-graph-perl libbio-perl-perl 
-```
-
-### Start installing some tools
-```bash
-apt-get install -y bowtie bowtie2 jellyfish salmon samtools bamtools busco fastqc trimmomatic sra-toolkit
-```
-
-## Installation of third-party software not included in the debian repository
-
-### Install Trinity 2.15.1
-
-```bash
-wget -O trinity.tar.gz "https://github.com/trinityrnaseq/trinityrnaseq/releases/download/Trinity-v2.15.1/trinityrnaseq-v2.15.1.FULL.tar.gz"
-mkdir -p /opt/trinity
-tar zxf trinity.tar.gz -C /opt/trinity/
-ln -s /opt/trinity/trinityrnaseq-v2.15.1/Trinity /usr/local/bin/Trinity
-export TRINITY_HOME=/opt/trinity/trinityrnaseq-v2.15.1
-echo "export TRINITY_HOME=/opt/trinity/trinityrnaseq-v2.15.1" >> .bashrc
-cd $TRINITY_HOME
-make install
-make
-cd 
-exec bash
-```
-
-### Install STAR 2.7.11a
-
-```bash
-wget -O trinity.tar.gz "https://github.com/trinityrnaseq/trinityrnaseq/releases/download/Trinity-v2.15.1/trinityrnaseq-v2.15.1.FULL.tar.gz"
-mkdir -p /opt/trinity
-tar zxf trinity.tar.gz -C /opt/trinity/
-rm -Rf /opt/trinity/trinityrnaseq-v2.15.1/trinity-plugins/bamsifter/sift_bam_max_cov.cpp
-git clone https://github.com/trinityrnaseq/bamsifter.git
-cd bamsifter
-mv sift_bam_max_cov.cpp /opt/trinity/trinityrnaseq-v2.15.1/trinity-plugins/bamsifter/
-ln -s /opt/trinity/trinityrnaseq-v2.15.1/Trinity /usr/local/bin/Trinity
-export TRINITY_HOME=/opt/trinity/trinityrnaseq-v2.15.1
-echo "export TRINITY_HOME=/opt/trinity/trinityrnaseq-v2.15.1" >> .bashrc
-cd $TRINITY_HOME
-make install
-make
-```
-
 
 *Restart your system*
 
 Download full script and run it
-
-
-```bash
-bash setup-bio-environment.sh
-```
