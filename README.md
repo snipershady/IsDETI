@@ -116,34 +116,34 @@ echo "export TRINITY_HOME=/opt/trinity/trinityrnaseq-v2.15.1" >> .bashrc
 cd $TRINITY_HOME
 make install
 make
-cd /
+cd 
 exec bash
 ```
 
-### Full script
+### Install STAR 2.7.11a
 
 ```bash
+wget -O trinity.tar.gz "https://github.com/trinityrnaseq/trinityrnaseq/releases/download/Trinity-v2.15.1/trinityrnaseq-v2.15.1.FULL.tar.gz"
+mkdir -p /opt/trinity
+tar zxf trinity.tar.gz -C /opt/trinity/
+rm -Rf /opt/trinity/trinityrnaseq-v2.15.1/trinity-plugins/bamsifter/sift_bam_max_cov.cpp
+git clone https://github.com/trinityrnaseq/bamsifter.git
+cd bamsifter
+mv sift_bam_max_cov.cpp /opt/trinity/trinityrnaseq-v2.15.1/trinity-plugins/bamsifter/
+ln -s /opt/trinity/trinityrnaseq-v2.15.1/Trinity /usr/local/bin/Trinity
+export TRINITY_HOME=/opt/trinity/trinityrnaseq-v2.15.1
+echo "export TRINITY_HOME=/opt/trinity/trinityrnaseq-v2.15.1" >> .bashrc
+cd $TRINITY_HOME
+make install
+make
+```
 
-#!/bin/bash
 
-if [ "$(whoami)" != "root" ]; then
-    SUDO=sudo
-fi
+*Restart your system*
 
-${SUDO} apt-get update
-${SUDO} apt-get install -y make g++ gcc cmake rsync git curl wget python3 python3-numpy python-is-python3 zstd
-${SUDO} apt-get install -y r-base ncbi-blast+ rsem  r-bioc-* libgd-graph-perl libbio-perl-perl 
-${SUDO} apt-get install -y bowtie bowtie2 jellyfish salmon samtools bamtools busco fastqc trimmomatic sra-toolkit
+Download full script and run it
 
-${SUDO} wget -O trinity.tar.gz "https://github.com/trinityrnaseq/trinityrnaseq/releases/download/Trinity-v2.15.1/trinityrnaseq-v2.15.1.FULL.tar.gz"
-${SUDO} mkdir -p /opt/trinity
-${SUDO} tar zxf trinity.tar.gz -C /opt/trinity/
-${SUDO} ln -s /opt/trinity/trinityrnaseq-v2.15.1/Trinity /usr/local/bin/Trinity
-${SUDO} export TRINITY_HOME=/opt/trinity/trinityrnaseq-v2.15.1
-${SUDO} echo "export TRINITY_HOME=/opt/trinity/trinityrnaseq-v2.15.1" >> .bashrc
-${SUDO} cd $TRINITY_HOME
-${SUDO} make install
-${SUDO} make
-${SUDO} cd /
-${SUDO} exec bash
+
+```bash
+bash setup-bio-environment.sh
 ```
